@@ -2,49 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml;
+using System.IO;
 
 public class XML_Parser
 {
 	XmlTextReader reader;
 
-	bool SetReader(string filename)
+	bool SetReader(string fileName)
 	{
-		TextAsset binary = Resources.Load<TextAsset>("/Resources/Dialogues/" + fileName + ".xml");
+		TextAsset binary = Resources.Load<TextAsset>("Dialogues/" + fileName + ".xml");
 		reader = new XmlTextReader(new StringReader(binary.text));
-    }
+		return reader.Read();
+	}
 
 	DialogueItem GetToken()
     {
-		int index = 0;
-		while (reader.Read())
+		DialogueItem dialog = null;
+		if (reader.Read())
 		{
-			if (reader.IsStartElement("node"))
+			dialog = new DialogueItem(
+				int.Parse(reader.GetAttribute("EnergyMin")),
+				int.Parse(reader.GetAttribute("EnergyMax")),
+				int.Parse(reader.GetAttribute("FaithMin")),
+				int.Parse(reader.GetAttribute("FaithMax")),
+				int.Parse(reader.GetAttribute("SatietyMin")),
+				int.Parse(reader.GetAttribute("SatietyMax")),
+				reader.GetAttribute("Message"));
+
+			XmlReader inner = reader.ReadSubtree();
+
+			while (inner.Read())
 			{
-				dialogue = new Dialogue();
-				dialogue.answer = new List<Answer>();
-				dialogue.npcText = reader.GetAttribute("npcText");
-				node.Add(dialogue);
-
-				XmlReader inner = reader.ReadSubtree();
-				while (inner.ReadToFollowing("answer"))
-				{
-					answer = new Answer();
-					answer.text = reader.GetAttribute("text");
-
-					int number;
-					if (int.TryParse(reader.GetAttribute("toNode"), out number)) answer.toNode = number; else answer.toNode = 0;
-
-					bool result;
-					if (bool.TryParse(reader.GetAttribute("exit"), out result)) answer.exit = result; else answer.exit = false;
-
-					node[index].answer.Add(answer);
-				}
-				inner.Close();
-
-				index++;
+				dialog.Options.Add(new OptionItem(
+					reader.GetAttribute("Text"),
+					reader.GetAttribute("Answer"),
+					int.Parse(reader.GetAttribute("EnergyChange")),
+					int.Parse(reader.GetAttribute("FaithChange")),
+					int.Parse(reader.GetAttribute("SatietyChange"))));
 			}
+
+			inner.Close();
+		}
+		else
+        {
+			reader.Close();
 		}
 
-		reader.Close();
+		return dialog;
 	}
+		
 }

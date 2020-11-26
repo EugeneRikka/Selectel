@@ -2,8 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class DialogueItem
+public class SubDialogueItem
+{
+    public string Message;
+
+    public List<OptionItem> Options;
+
+    public SubDialogueItem(string message)
+    {
+        Message = message;
+
+        Options = new List<OptionItem>();
+    }
+}
+
+public class DialogueItem : SubDialogueItem
 {
     private bool WasRecently; 
 
@@ -13,15 +26,9 @@ public class DialogueItem
     public int FaithMin, FaithMax;
     public int SatietyMin, SatietyMax;
 
-    public string Message;
-
-    public List<OptionItem> Options;
-
-    public DialogueItem(int dialogueNum, int energyMin, int energyMax, int faithMin, int faithMax, int satietyMin, int satietyMax, string message)
+    public DialogueItem(int energyMin, int energyMax, int faithMin, int faithMax, int satietyMin, int satietyMax, string message)
     {
         WasRecently = false;
-
-        DialogueIndex = dialogueNum;
         
         EnergyMin = energyMin; EnergyMax = energyMax;
         FaithMin = faithMin; FaithMax = faithMax;
@@ -47,3 +54,4 @@ public class DialogueItem
         WasRecently = false;
     }
 }
+
