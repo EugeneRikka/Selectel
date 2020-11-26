@@ -7,6 +7,7 @@ using System.IO;
 public class XML_Parser
 {
 	private XmlTextReader reader;
+	private XmlReader inner;
 
 	private Dictionary<string, SubDialogueItem> SubDialogues = new Dictionary<string, SubDialogueItem>();
 	private List<DialogueItem> Dialogues = new List<DialogueItem>();
@@ -25,12 +26,11 @@ public class XML_Parser
 			if (reader.IsStartElement("node"))
 			{
 				string index = reader.GetAttribute("DialogueIndex");
-				Debug.Log(index);
 				SubDialogues.Add(index, getSubDialogueItem());
 
-				XmlReader inner = reader.ReadSubtree();
+				inner = reader.ReadSubtree();
 
-				while (inner.ReadToFollowing("Option"))
+				while (inner.ReadToFollowing("Options"))
 				{
 					OptionItem option = getOptionItem();
 					SubDialogues[index].Options.Add(option);
@@ -52,12 +52,16 @@ public class XML_Parser
 			{
 				Dialogues.Add(getDialogueItem());
 
-				XmlReader inner = reader.ReadSubtree();
+				inner = reader.ReadSubtree();
 
-				while (inner.ReadToFollowing("Option"))
+				while (inner.ReadToFollowing("Options"))
 				{
 					OptionItem option = getOptionItem();
-					option.NextSubDialogue = SubDialogues[reader.GetAttribute("NextDialogue")];
+					string next = reader.GetAttribute("NextDialogue");
+					if (next != "0")
+                    {
+						option.NextSubDialogue = SubDialogues[next];
+					}
 					Dialogues[index].Options.Add(option);
 				}
 
