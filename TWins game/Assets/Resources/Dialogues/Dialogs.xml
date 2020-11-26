@@ -1,9 +1,16 @@
 <dialogue>
-  <node DialogueIndex="1" EnergyMin="2" EnergyMax="3" FaithMin="4" FaithMax="5" SatietyMin="6" SatietyMax="7" Message="8">
-    <Options Text="1" Answer="2" EnergyChange="3" FaithChange="4" SatietyChange="5" NextDialogue="6" />
+  <node EnergyMin="20" EnergyMax="30" FaithMin="30" FaithMax="40" SatietyMin="40" SatietyMax="50" Message="Одинообразность будней на корабле сводит с ума. Бабки от скуки снова кормят голубей семками.">
+    <Options Text="Отправить  божественное предупреждение: &quot;Чревоугодие - грех, не склоняйте к нему братьев ваших меньших&quot;.  " Answer="Бабки внемли предупреждению и остановились! Голуби смирились, но ненадолго." EnergyChange="10" FaithChange="20" SatietyChange="-20" NextDialogue="0" />
+    <Options Text="Отравить семки и проучить обжор-голубей.  " Answer="Отрава не подействовала, голуби мутировали и обозлились на бабок. Обстановка на корабле накаляется.      " EnergyChange="-10" FaithChange="-10" SatietyChange="-30" NextDialogue="0" />
+    <Options Text="Игнорировать происходящее. " Answer="О нет, корабль тонет в голубином помете!" EnergyChange="-10" FaithChange="0" SatietyChange="30" NextDialogue="0" />
   </node>
-  <node DialogueIndex="2" EnergyMin="2" EnergyMax="3" FaithMin="4" FaithMax="5" SatietyMin="6" SatietyMax="7" Message="8">
-    <Options Text="1" Answer="2" EnergyChange="3" FaithChange="4" SatietyChange="5" NextDialogue="6" />
-    <Options Text="1" Answer="2" EnergyChange="3" FaithChange="4" SatietyChange="5" NextDialogue="6" />
+  <node EnergyMin="30" EnergyMax="40" FaithMin="20" FaithMax="40" SatietyMin="50" SatietyMax="60" Message="Гопники вступили в спор с бабками и пытаются склонить их на сторону атеизма.">
+    <Options Text="Наслать благословение солнечной энергии на гопников, чтобы доказать свое существование.  " Answer="Бабки в экстазе. Убежденные в своей правоте, они усердно молятся всевышнему подсолнуху и поливают растения на борту. " EnergyChange="20" FaithChange="20" SatietyChange="0" NextDialogue="0" />
+    <Options Text="Подогреть спор и подкинуть древнюю газету про атеизм." Answer=" Спор накалился и перешел к драке, газету никто не заметил. Зато гопники разгромили отсек корабля для турниров по вязанию. " EnergyChange="-10" FaithChange="-10" SatietyChange="-10" NextDialogue="1" />
+  </node>
+  <node EnergyMin="60" EnergyMax="80" FaithMin="60" FaithMax="80" SatietyMin="70" SatietyMax="80" Message="Бабки устроили чемпионат по вязанию носков. ">
+    <Options Text=" Спонсировать турнир добавкой магических семок." Answer=" Турнир стал важнейшим событием на корабле. Все обитатели сыты и довольны." EnergyChange="20" FaithChange="10" SatietyChange="20" NextDialogue="2" />
+    <Options Text="Стащить носки у гопников, чтобы повысить спрос на новые. " Answer="Новые носки не воняют. Гопники безоружны. " EnergyChange="-10" FaithChange="10" SatietyChange="-10" NextDialogue="0" />
+    <Options Text="Благословить бабку Дуню на победу." Answer="Победительница ликует, остальные завидуют." EnergyChange="-20" FaithChange="-20" SatietyChange="0" NextDialogue="3" />
   </node>
 </dialogue>
