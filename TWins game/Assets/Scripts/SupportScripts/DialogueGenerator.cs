@@ -7,7 +7,7 @@ public class DialogueGenerator : MonoBehaviour
 {
 
 	public string fileName = "Dialogues"; // имя генерируемого файла (без разрешения)
-	public DialogueItem[] node;
+	public DialogueItemGen[] node;
 
 	public void Generate()
 	{
@@ -40,7 +40,7 @@ public class DialogueGenerator : MonoBehaviour
 		Debug.Log(this + " Создан XML файл диалога [ " + fileName + " ] по адресу: " + path);
 	}
 
-	public void createDialogueItem(XmlElement element, DialogueItem dialogue)
+	public void createDialogueItem(XmlElement element, DialogueItemGen dialogue)
 	{
 		element.SetAttribute("DialogueIndex", dialogue.DialogueIndex.ToString());
 
@@ -56,7 +56,7 @@ public class DialogueGenerator : MonoBehaviour
 		element.SetAttribute("Message", dialogue.Message);
 	}
 
-	public void createOptionItem(XmlElement element, OptionItem option)
+	public void createOptionItem(XmlElement element, OptionItemGen option)
 	{
 		element.SetAttribute("Text", option.Text);
 		element.SetAttribute("Answer", option.Answer);
@@ -66,4 +66,33 @@ public class DialogueGenerator : MonoBehaviour
 		element.SetAttribute("SatietyChange", option.SatietyChange.ToString());
 		element.SetAttribute("NextDialogue", option.NextDialogue.ToString());
 	}
+}
+
+[System.Serializable]
+public class DialogueItemGen
+{
+	private bool WasRecently;
+
+	public int DialogueIndex;
+
+	public int EnergyMin, EnergyMax;
+	public int FaithMin, FaithMax;
+	public int SatietyMin, SatietyMax;
+
+	public string Message;
+
+	public OptionItemGen[] Options;
+};
+
+[System.Serializable]
+public class OptionItemGen
+{
+	public string Text;
+	public string Answer;
+
+	public int EnergyChange;
+	public int FaithChange;
+	public int SatietyChange;
+
+	public string NextDialogue;
 }
