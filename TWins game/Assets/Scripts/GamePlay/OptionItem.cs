@@ -11,12 +11,13 @@ public class OptionItem
     public int FaithChange;
     public int SatietyChange;
 
-    public DialogueItem NextDialogue;
+    public SubDialogueItem NextSubDialogue;
 
     public OptionItem(string text, string answer, int energyChange, int faithChange, int satietyChange)
     {
         Text = text;
         Answer = answer;
         EnergyChange = energyChange; FaithChange = faithChange; SatietyChange = satietyChange;
+        NextSubDialogue = null;
     }
 }

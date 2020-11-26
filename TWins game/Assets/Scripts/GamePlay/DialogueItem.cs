@@ -8,6 +8,11 @@ public class SubDialogueItem
 
     public List<OptionItem> Options;
 
+    public SubDialogueItem()
+    {
+
+    }
+
     public SubDialogueItem(string message)
     {
         Message = message;

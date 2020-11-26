@@ -1,3 +1,0 @@
-<node DialogueIndex="1" EnergyMin="2" EnergyMax="3" FaithMin="4" FaithMax="5" SatietyMin="6" SatietyMax="7" Message="8">
-  <Options Text="1" Answer="2" EnergyChange="3" FaithChange="4" SatietyChange="5" NextDialogue="6" />
-</node>
