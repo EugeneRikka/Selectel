@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class GameProcess : MonoBehaviour
 {
-    public GameObject dialogWindowUI;
-    private bool isDialogActive = false;
+    public GameObject dialogueWindowUI;
+    private bool isDialogueActive = false;
 
-    public Dialogs dialogs = new Dialogs();
+    private List<DialogueItem> dialogues = new List<DialogueItem>();
+    private Dictionary<string, DialogueItem> subDialogues = new Dictionary<string, DialogueItem>();
 
     public Bar Energy;
     public Bar Faith;
@@ -20,22 +21,22 @@ public class GameProcess : MonoBehaviour
         Energy.setValue(50);
         Faith.setValue(0);
         Satiety.setValue(50);
-        dialogWindowUI.SetActive(false);
+        dialogueWindowUI.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (isDialogActive)
+            if (isDialogueActive)
             {
                 hideDialog();
-                isDialogActive = false;
+                isDialogueActive = false;
             }
             else
             { 
                 showDialog();
-                isDialogActive = true;
+                isDialogueActive = true;
             }
         }
     }
@@ -43,12 +44,12 @@ public class GameProcess : MonoBehaviour
 
     private void showDialog()
     {
-        dialogWindowUI.SetActive(true);
+        dialogueWindowUI.SetActive(true);
 
     }
 
     private void hideDialog()
     {
-        dialogWindowUI.SetActive(false);
+        dialogueWindowUI.SetActive(false);
     }
 }

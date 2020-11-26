@@ -11,7 +11,7 @@ public class DialogueGenerator : MonoBehaviour
 
 	public void Generate()
 	{
-		string path = Application.dataPath + "/Dialogues/" + fileName + ".xml";
+		string path = Application.dataPath + "/Resources/Dialogues/" + fileName + ".xml";
 
 		XmlDocument xmlDoc = new XmlDocument();
 

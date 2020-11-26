@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a54ef7a325b2c49ae270f702ebea4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogWindowUI: {fileID: 547869261}
+  dialogueWindowUI: {fileID: 547869261}
   Energy: {fileID: 470527493}
   Faith: {fileID: 470527491}
   Satiety: {fileID: 470527490}

@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Dialogs
-{    
+public class DialoguesBox
+{
+    public DialoguesBox()
+    {
+
+    }
 
     //public List<DialogItem> dialogs;
 

@@ -15,9 +15,9 @@ public class DialogueItem
 
     public string Message;
 
-    public OptionItem[] Options;
+    public List<OptionItem> Options;
 
-    /*public DialogueItem(int dialogueNum, int energyMin, int energyMax, int faithMin, int faithMax, int satietyMin, int satietyMax, string message)
+    public DialogueItem(int dialogueNum, int energyMin, int energyMax, int faithMin, int faithMax, int satietyMin, int satietyMax, string message)
     {
         WasRecently = false;
 
@@ -30,5 +30,20 @@ public class DialogueItem
         Message = message;
 
         Options = new List<OptionItem>();
-    }*/
+    }
+
+    void used()
+    {
+        WasRecently = true;
+    }
+
+    bool wasRecently()
+    {
+        return WasRecently;
+    }
+
+    void refresh()
+    {
+        WasRecently = false;
+    }
 }
