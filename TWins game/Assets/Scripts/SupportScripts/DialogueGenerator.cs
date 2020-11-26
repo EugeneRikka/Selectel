@@ -6,7 +6,7 @@ using System.Xml;
 public class DialogueGenerator : MonoBehaviour
 {
 
-	public string fileName = "Dialogs"; // имя генерируемого файла (без разрешения)
+	public string fileName = "Dialogues"; // имя генерируемого файла (без разрешения)
 	public DialogueItem[] node;
 
 	public void Generate()
@@ -14,6 +14,9 @@ public class DialogueGenerator : MonoBehaviour
 		string path = Application.dataPath + "/Dialogues/" + fileName + ".xml";
 
 		XmlDocument xmlDoc = new XmlDocument();
+
+		XmlNode rootNode = xmlDoc.CreateElement("dialogue");
+		xmlDoc.AppendChild(rootNode);
 
 		for (int j = 0; j < node.Length; j++)
 		{
@@ -30,7 +33,7 @@ public class DialogueGenerator : MonoBehaviour
 				DialogueElement.AppendChild(OptionElement);
 			}
 
-			xmlDoc.AppendChild(DialogueElement);
+			rootNode.AppendChild(DialogueElement);
 		}
 
 		xmlDoc.Save(path);

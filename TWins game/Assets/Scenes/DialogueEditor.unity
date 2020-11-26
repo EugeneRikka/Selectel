@@ -558,39 +558,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a21c09a1d7ffb4f823d06a49795402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: Example
-  folder: Dialogues
+  fileName: Dialogs
   node:
-  - DialogueIndex: 0
-    EnergyMin: 0
-    EnergyMax: 0
-    FaithMin: 0
-    FaithMax: 0
-    SatietyMin: 0
-    SatietyMax: 0
-    Message: 
+  - DialogueIndex: 1
+    EnergyMin: 2
+    EnergyMax: 3
+    FaithMin: 4
+    FaithMax: 5
+    SatietyMin: 6
+    SatietyMax: 7
+    Message: 8
     Options:
-    - Text: 
-      Answer: 
-      EnergyChange: 0
-      FaithChange: 0
-      SatietyChange: 0
-      NextDialogue: 0
-    - Text: 
-      Answer: 
-      EnergyChange: 0
-      FaithChange: 0
-      SatietyChange: 0
-      NextDialogue: 0
-  - DialogueIndex: 0
-    EnergyMin: 0
-    EnergyMax: 0
-    FaithMin: 0
-    FaithMax: 0
-    SatietyMin: 0
-    SatietyMax: 0
-    Message: 
-    Options: []
+    - Text: 1
+      Answer: 2
+      EnergyChange: 3
+      FaithChange: 4
+      SatietyChange: 5
+      NextDialogue: 6
+  - DialogueIndex: 2
+    EnergyMin: 2
+    EnergyMax: 3
+    FaithMin: 4
+    FaithMax: 5
+    SatietyMin: 6
+    SatietyMax: 7
+    Message: 8
+    Options:
+    - Text: 1
+      Answer: 2
+      EnergyChange: 3
+      FaithChange: 4
+      SatietyChange: 5
+      NextDialogue: 6
+    - Text: 1
+      Answer: 2
+      EnergyChange: 3
+      FaithChange: 4
+      SatietyChange: 5
+      NextDialogue: 6
 --- !u!114 &981355598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,7 +817,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -17161.398, y: 16961.396}
+  m_AnchoredPosition: {x: -29498.975, y: 29298.973}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1100704965
