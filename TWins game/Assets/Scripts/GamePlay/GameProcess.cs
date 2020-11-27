@@ -76,11 +76,11 @@ public class GameProcess : MonoBehaviour
             {
                 Dialogues[i].refresh();
             }
-            index = (int)Random.Range(0, Dialogues.Count);
+            index = Random.Range(0, Dialogues.Count);
         }
         else
         {
-            index = lottery[(int)Random.Range(0, lottery.Count)];
+            index = lottery[Random.Range(0, lottery.Count)];
         }
         Dialogues[index].used();
         currentDialogue = Dialogues[index];
