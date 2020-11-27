@@ -22,7 +22,7 @@ public class TRex : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Random.Range(0, 100) < 10)
+        if (Random.Range(0, 100) < 3)
         {
             if (isAppeared == SpawnMark)
             {
@@ -37,7 +37,7 @@ public class TRex : MonoBehaviour
                 {
                     place = new Vector2(1100, 400);
                     dest = new Vector2(-1100, 300);
-                }
+                }   
                 TRexObject.transform.position = place;
             }
             else 

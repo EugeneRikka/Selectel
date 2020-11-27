@@ -242,24 +242,27 @@ public class Character
     public int type;
 
     public bool buttonExists = false;
-    private GameObject button;
+    public GameObject button;
 
     public void CreateButton(Bar bar)
     {
         buttonExists = true;
         GameObject button = new GameObject("Bonus", typeof(Image), typeof(Button), typeof(LayoutElement));
+        Texture2D tex = Resources.Load<Texture2D>("Images/SEMKA");
+        button.GetComponent<Image>().sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector3(0.05f, 0.05f, 0f), 1.0f);
+
         button.transform.SetParent(npc.transform);
-        //button.image = 
-        //button.GetComponent<LayoutElement>().minHeight = 35;
-        //button.GetComponent<LayoutElement>().minHeight = 35;
-        button.GetComponent<Button>().onClick.AddListener(delegate {press(bar);});
+        button.GetComponent<RectTransform>().position = new Vector3(0f, 0f, 0f);    
+
+        button.GetComponent<Button>().onClick.AddListener(
+            delegate {
+                press(bar);
+                GameObject.Destroy(button);
+            });
     }
 
     public void press(Bar bar)
     {
-        GameObject.Destroy(npc.GetComponent<Button>());
-        GameObject.Destroy(button);
-
         if (type == 0)
         {
             bar.changeValue(2);
