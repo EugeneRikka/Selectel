@@ -44,17 +44,17 @@ public class DialogueItem : SubDialogueItem
         Options = new List<OptionItem>();
     }
 
-    void used()
+    public void used()
     {
         WasRecently = true;
     }
 
-    bool wasRecently()
+    public bool wasRecently()
     {
         return WasRecently;
     }
 
-    void refresh()
+    public void refresh()
     {
         WasRecently = false;
     }
