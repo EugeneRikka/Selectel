@@ -24,20 +24,23 @@ public class Room : MonoBehaviour
         {
             if (item.isntSet)
             {
+                item.movementVector = 1f;
+                item.step = 0.1f;
+                item.destPlace = new Vector3(Random.Range(0f, 1.5f), Random.Range(0f, 1.5f), 0.0f);
                 item.npc.transform.localScale = new Vector3(0.1f, 0.4f, 0.0f);
-                item.npc.transform.position = item.curPlace;
+                item.npc.transform.position = item.destPlace;
                 item.isntSet = false;
             }
 
-            transform.position = Vector3.Lerp(item.curPlace, item.destPlace, item.movementVector);
-            item.movementVector += item.step;
-
-            if (item.movementVector > 1f)
+            if (item.movementVector >= 1f)
             {
                 item.curPlace = item.destPlace;
                 item.destPlace = new Vector3(Random.Range(-200f, 150f), Random.Range(-100f, 100f), 0.0f);
                 item.movementVector = 0f;
             }
+
+            transform.position = Vector3.Lerp(item.curPlace, item.destPlace, item.movementVector);
+            item.movementVector += item.step;
         }
     }
 
@@ -59,10 +62,6 @@ public class Room : MonoBehaviour
 
             Character current = new Character();
             current.npc = currentObject;
-            current.movementVector = 0f;
-            current.step = 0.5f;
-            current.curPlace = new Vector3(Random.Range(0f, 1.5f), Random.Range(0f, 1.5f), 0.0f);
-            current.destPlace = new Vector3(Random.Range(0f, 1.5f), Random.Range(0f, 1.5f), 0.0f);
             current.isntSet = true;
             list.Add(current);
         }
