@@ -252,12 +252,14 @@ public class Character
         button.GetComponent<Image>().sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector3(0.05f, 0.05f, 0f), 1.0f);
 
         button.transform.SetParent(npc.transform);
-        button.GetComponent<RectTransform>().position = new Vector3(0f, 0f, 0f);    
+        
+        button.GetComponent<RectTransform>().position = new Vector3(0f, 0f, 0f);
+
+        Debug.Log(button.GetComponent<RectTransform>().position);
 
         button.GetComponent<Button>().onClick.AddListener(
             delegate {
-                press(bar);
-                GameObject.Destroy(button);
+                press(bar);GameObject.Destroy(button);
             });
     }
 
